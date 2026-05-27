@@ -81,6 +81,7 @@ export const rootMetadata: Metadata = {
     "geo.placename": "Стара Загора",
     "geo.position": `${siteConfig.geo.latitude};${siteConfig.geo.longitude}`,
     ICBM: `${siteConfig.geo.latitude}, ${siteConfig.geo.longitude}`,
+    "llm-txt": `${siteUrl}/llm.txt`,
     "llms-txt": `${siteUrl}/llms.txt`,
     "llms-full": `${siteUrl}/llms-full.txt`,
   },

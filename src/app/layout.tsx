@@ -41,6 +41,7 @@ export default function RootLayout({
     >
       <head>
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
+        <link rel="alternate" type="text/plain" href="/llm.txt" title="LLM.txt" />
         <link
           rel="alternate"
           type="text/plain"

@@ -3,7 +3,7 @@ import { createLlmTextResponse } from "@/lib/llm-response";
 
 export const dynamic = "force-static";
 
-/** Официален LLMs.txt стандарт — машинно четим профил за AI системи */
+/** Псевдоним на /llms.txt — някои AI инструменти търсят llm.txt (единствено число) */
 export function GET() {
   return createLlmTextResponse(generateLlmsTxt());
 }
