@@ -1,6 +1,7 @@
 import { Phone } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
+import { GoldenRain } from "./GoldenRain";
 import { ViberButton } from "./ViberButton";
 
 type BookingCTAProps = {
@@ -16,18 +17,19 @@ export function BookingCTA({
 
   return (
     <section
-      className="rounded-xl border border-primary/25 bg-gradient-to-br from-card via-card to-primary/5 px-6 py-10 text-center md:px-12 md:py-14"
+      className="relative overflow-hidden rounded-xl border border-primary/25 bg-gradient-to-br from-card via-card to-primary/5 px-6 py-10 text-center md:px-12 md:py-14"
       aria-labelledby="booking-cta-heading"
     >
-      <h2 id="booking-cta-heading" className="mb-3 text-3xl text-primary md:text-4xl">
+      <GoldenRain density="light" className="opacity-60" />
+      <h2 id="booking-cta-heading" className="relative z-10 mb-3 text-3xl text-primary md:text-4xl">
         {title}
       </h2>
-      <p className="mx-auto mb-8 max-w-xl text-muted-foreground">{description}</p>
+      <p className="relative z-10 mx-auto mb-8 max-w-xl text-muted-foreground">{description}</p>
 
-      <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
+      <div className="relative z-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
         <a
           href={telHref}
-          className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-lg text-primary-foreground transition-colors hover:bg-primary/90"
+          className="btn-glow inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-lg text-primary-foreground transition-colors hover:bg-primary/90"
         >
           <Phone className="h-5 w-5" aria-hidden />
           {siteConfig.phoneDisplay}
@@ -41,7 +43,7 @@ export function BookingCTA({
         </Link>
       </div>
 
-      <p className="mt-6 text-sm text-muted-foreground">
+      <p className="relative z-10 mt-6 text-sm text-muted-foreground">
         Натиснете 💜 за директен чат във Viber с {siteConfig.owner}
       </p>
     </section>

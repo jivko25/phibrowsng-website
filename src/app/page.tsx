@@ -1,4 +1,5 @@
 import { About } from "@/components/About";
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { Benefits } from "@/components/Benefits";
 import { Contact } from "@/components/Contact";
 import { FAQ } from "@/components/FAQ";
@@ -13,11 +14,21 @@ export default function HomePage() {
       <Header />
       <main id="main-content">
         <Hero />
-        <Services />
-        <Benefits />
-        <About />
-        <FAQ />
-        <Contact />
+        <AnimateOnScroll>
+          <Services />
+        </AnimateOnScroll>
+        <AnimateOnScroll delay={80}>
+          <Benefits />
+        </AnimateOnScroll>
+        <AnimateOnScroll delay={120}>
+          <About />
+        </AnimateOnScroll>
+        <AnimateOnScroll delay={80}>
+          <FAQ />
+        </AnimateOnScroll>
+        <AnimateOnScroll delay={100}>
+          <Contact />
+        </AnimateOnScroll>
       </main>
       <Footer />
     </>

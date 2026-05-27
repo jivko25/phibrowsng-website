@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ProcedureDetail } from "@/components/ProcedureDetail";
@@ -51,7 +52,9 @@ export default async function ProcedurePage({ params }: PageProps) {
       <Header />
       <main id="main-content" className="px-4 pb-20 pt-28">
         <div className="mx-auto max-w-7xl">
-          <ProcedureDetail procedure={procedure} />
+          <AnimateOnScroll>
+            <ProcedureDetail procedure={procedure} />
+          </AnimateOnScroll>
         </div>
       </main>
       <Footer />

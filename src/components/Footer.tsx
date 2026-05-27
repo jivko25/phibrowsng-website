@@ -1,8 +1,7 @@
-import { Sparkles } from "lucide-react";
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 import { getAllProcedures, getProcedureCardTitle } from "@/lib/procedures";
 import { navLinks, siteConfig } from "@/lib/site";
-import { ViberButton } from "./ViberButton";
 
 export function Footer() {
   const quickLinks = navLinks.filter((link) => link.href !== "/#contact");
@@ -14,14 +13,12 @@ export function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 grid gap-8 md:grid-cols-4">
           <div className="md:col-span-1">
-            <div className="mb-4 flex items-center gap-2">
-              <Sparkles className="h-6 w-6 text-primary" aria-hidden />
-              <span className="text-lg font-semibold text-primary">{siteConfig.name}</span>
-            </div>
-            <p className="mb-4 text-muted-foreground">
+            <Link href="/" className="mb-4 inline-block transition-opacity hover:opacity-90">
+              <Logo variant="footer" />
+            </Link>
+            <p className="text-muted-foreground">
               {siteConfig.tagline}. {siteConfig.owner}, {siteConfig.address.city}.
             </p>
-            <ViberButton size="sm" showLabel={false} />
           </div>
 
           <nav aria-label="Процедури">

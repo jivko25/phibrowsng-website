@@ -26,7 +26,7 @@ export function Services() {
             <li key={procedure.slug}>
               <Link
                 href={`/proceduri/${procedure.slug}`}
-                className="group block overflow-hidden rounded-lg border border-border bg-card transition-all hover:border-primary hover:shadow-xl hover:shadow-primary/10"
+                className="card-lift group block overflow-hidden rounded-lg border border-border bg-card hover:border-primary"
               >
                 <article>
                   <div className="relative h-56 overflow-hidden">

@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import Link from "next/link";
+import { formatPrice } from "@/lib/currency";
 import type { Procedure } from "@/lib/procedures";
 import { getProcedureCardTitle } from "@/lib/procedures";
 import { siteConfig } from "@/lib/site";
@@ -48,7 +49,7 @@ export function ProcedureDetail({ procedure }: ProcedureDetailProps) {
         )}
       </header>
 
-      <div className="mb-12 grid gap-10 lg:grid-cols-2 lg:gap-12">
+      <div className="mb-12 grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
         <ImageSlider images={procedure.images} />
 
         <div>
@@ -80,13 +81,13 @@ export function ProcedureDetail({ procedure }: ProcedureDetailProps) {
           {procedure.variants.map((variant) => (
             <li
               key={variant.name}
-              className="rounded-lg border border-border bg-card p-6 transition-colors hover:border-primary/50"
+              className="card-lift rounded-lg border border-border bg-card p-6 hover:border-primary/50"
             >
               <h3 className="mb-2 text-lg text-foreground">{variant.name}</h3>
               {variant.note && (
                 <p className="mb-3 text-sm text-muted-foreground">{variant.note}</p>
               )}
-              <p className="text-2xl font-medium text-primary">{variant.price}</p>
+              <p className="text-2xl font-medium text-primary">{formatPrice(variant.priceEur)}</p>
             </li>
           ))}
         </ul>

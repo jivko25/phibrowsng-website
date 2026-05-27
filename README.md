@@ -34,7 +34,24 @@ NEXT_PUBLIC_PHONE_DISPLAY=+359 XX XXX XXXX
 NEXT_PUBLIC_VIBER_NUMBER=359XXXXXXXXX
 ```
 
-Цените и текстовете на процедурите се редактират в `src/lib/procedures.ts`.
+Цените (в **евро**) и текстовете на процедурите се редактират в `src/lib/procedures.ts`.
+
+### Показване на валута
+
+В `.env.local`:
+
+```
+# Само евро (по подразбиране)
+NEXT_PUBLIC_CURRENCY_DISPLAY=euro-only
+
+# Евро и лева: 143 € / 280 лв
+NEXT_PUBLIC_CURRENCY_DISPLAY=euro-bgn
+
+# Само лева (изчислени по курса)
+NEXT_PUBLIC_CURRENCY_DISPLAY=bgn-only
+
+NEXT_PUBLIC_EUR_BGN_RATE=1.95583
+```
 
 ## Production build
 

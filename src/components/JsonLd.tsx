@@ -1,3 +1,4 @@
+import { getLowestPriceEur } from "@/lib/currency";
 import { getAllProcedures } from "@/lib/procedures";
 import { faqs, heroImage, siteConfig } from "@/lib/site";
 
@@ -51,6 +52,11 @@ export function JsonLd() {
           name: procedure.name,
           description: procedure.shortDescription,
           provider: { "@id": `${siteConfig.url}/#organization` },
+        },
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          priceCurrency: "EUR",
+          price: getLowestPriceEur(procedure.variants),
         },
       })),
     },

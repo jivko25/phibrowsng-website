@@ -98,5 +98,24 @@ export const faqs = [
 export const heroImage =
   "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920";
 
+export const heroImages = [
+  {
+    src: heroImage,
+    alt: "Професионален грим и козметика — PhiBrows NG",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
+    alt: "Оформяне на вежди — микроблейдинг",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1633681926035-ec1ac984418a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
+    alt: "Луксозен beauty студио",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
+    alt: "Процедури за красота и вежди",
+  },
+] as const;
+
 export const aboutImage =
   "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";

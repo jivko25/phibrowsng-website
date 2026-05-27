@@ -27,8 +27,8 @@ export function ImageSlider({ images }: ImageSliderProps) {
   if (images.length === 0) return null;
 
   return (
-    <div className="relative overflow-hidden rounded-xl border border-border bg-card">
-      <div className="relative aspect-[4/3] w-full md:aspect-[16/10]">
+    <div className="h-fit w-full overflow-hidden rounded-xl border border-border">
+      <div className="relative aspect-[4/3] w-full lg:aspect-[3/2]">
         {images.map((image, i) => (
           <div
             key={image.src}
@@ -41,7 +41,7 @@ export function ImageSlider({ images }: ImageSliderProps) {
               src={image.src}
               alt={image.alt}
               fill
-              sizes="(max-width: 768px) 100vw, 60vw"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
               priority={i === 0}
             />
@@ -53,7 +53,7 @@ export function ImageSlider({ images }: ImageSliderProps) {
             <button
               type="button"
               onClick={() => goTo(index - 1)}
-              className="absolute top-1/2 left-3 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
+              className="absolute top-1/2 left-3 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
               aria-label="Предишна снимка"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -61,31 +61,31 @@ export function ImageSlider({ images }: ImageSliderProps) {
             <button
               type="button"
               onClick={() => goTo(index + 1)}
-              className="absolute top-1/2 right-3 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
+              className="absolute top-1/2 right-3 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-primary/30 bg-background/80 text-primary backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
               aria-label="Следваща снимка"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
+
+            <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center gap-2 bg-gradient-to-t from-black/70 to-transparent px-4 pt-6 pb-2.5">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setIndex(i)}
+                  className={`rounded-full transition-all ${
+                    i === index
+                      ? "h-1.5 w-7 bg-primary"
+                      : "h-1.5 w-1.5 bg-white/40 hover:bg-primary/80"
+                  }`}
+                  aria-label={`Снимка ${i + 1} от ${images.length}`}
+                  aria-current={i === index}
+                />
+              ))}
+            </div>
           </>
         )}
       </div>
-
-      {images.length > 1 && (
-        <div className="flex justify-center gap-2 border-t border-border bg-card/80 px-4 py-3">
-          {images.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setIndex(i)}
-              className={`h-2 rounded-full transition-all ${
-                i === index ? "w-8 bg-primary" : "w-2 bg-muted-foreground/40 hover:bg-primary/60"
-              }`}
-              aria-label={`Снимка ${i + 1} от ${images.length}`}
-              aria-current={i === index}
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 }

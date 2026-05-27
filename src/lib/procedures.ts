@@ -1,6 +1,9 @@
+import { formatLowestPrice } from "./currency";
+
 export type PriceVariant = {
   name: string;
-  price: string;
+  /** Основна цена в евро */
+  priceEur: number;
   note?: string;
 };
 
@@ -45,9 +48,9 @@ export const procedures: Procedure[] = [
       "Корекция след 4–6 седмици",
     ],
     variants: [
-      { name: "Първа процедура", price: "280 лв" },
-      { name: "Корекция (след 4–6 седмици)", price: "120 лв" },
-      { name: "Поддръжка / ретуш", price: "180 лв", note: "след изтичане на пигмента" },
+      { name: "Първа процедура", priceEur: 143 },
+      { name: "Корекция (след 4–6 седмици)", priceEur: 61 },
+      { name: "Поддръжка / ретуш", priceEur: 92, note: "след изтичане на пигмента" },
     ],
     cardImage:
       "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
@@ -87,9 +90,9 @@ export const procedures: Procedure[] = [
       "Дълготраен цвят",
     ],
     variants: [
-      { name: "Първа процедура", price: "300 лв" },
-      { name: "Корекция (след 4–6 седмици)", price: "130 лв" },
-      { name: "Поддръжка / ретуш", price: "200 лв" },
+      { name: "Първа процедура", priceEur: 153 },
+      { name: "Корекция (след 4–6 седмици)", priceEur: 66 },
+      { name: "Поддръжка / ретуш", priceEur: 102 },
     ],
     cardImage:
       "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
@@ -131,12 +134,12 @@ export const procedures: Procedure[] = [
     variants: [
       {
         name: "Ламиниране + подхранваща терапия",
-        price: "55 лв",
+        priceEur: 28,
         note: "без боядисване",
       },
       {
         name: "Ламиниране + подхранваща терапия + боядисване",
-        price: "75 лв",
+        priceEur: 38,
         note: "пълен пакет",
       },
     ],
@@ -180,12 +183,12 @@ export const procedures: Procedure[] = [
     variants: [
       {
         name: "Ламиниране + подхранваща терапия",
-        price: "60 лв",
+        priceEur: 31,
         note: "без боядисване",
       },
       {
         name: "Ламиниране + подхранваща терапия + боядисване",
-        price: "80 лв",
+        priceEur: 41,
         note: "пълен пакет",
       },
     ],
@@ -225,10 +228,5 @@ export function getProcedureCardTitle(procedure: Procedure): string {
 }
 
 export function getLowestPrice(procedure: Procedure): string {
-  const prices = procedure.variants.map((v) => {
-    const match = v.price.match(/(\d+)/);
-    return match ? parseInt(match[1], 10) : Infinity;
-  });
-  const min = Math.min(...prices);
-  return min === Infinity ? procedure.variants[0]?.price ?? "" : `от ${min} лв`;
+  return formatLowestPrice(procedure.variants);
 }

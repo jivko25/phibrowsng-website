@@ -10,6 +10,10 @@ export const rootMetadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  icons: {
+    icon: "/phiBrowsNG_logo.svg",
+    apple: "/phiBrowsNG_logo.svg",
+  },
   keywords: [
     "микроблейдинг Стара Загора",
     "BoldBrows",

@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { benefits } from "@/lib/site";
 
 export function Benefits() {
@@ -15,18 +16,20 @@ export function Benefits() {
         </header>
 
         <ul className="grid list-none gap-8 md:grid-cols-2">
-          {benefits.map((benefit) => (
-            <li key={benefit.title} className="flex gap-4">
-              <div className="flex-shrink-0" aria-hidden>
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
-                  <Check className="h-6 w-6 text-primary" />
+          {benefits.map((benefit, index) => (
+            <AnimateOnScroll key={benefit.title} delay={index * 100}>
+              <li className="flex gap-4">
+                <div className="flex-shrink-0" aria-hidden>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 transition-transform duration-300 hover:scale-110">
+                    <Check className="h-6 w-6 text-primary" />
+                  </div>
                 </div>
-              </div>
-              <div>
-                <h3 className="mb-2 text-xl">{benefit.title}</h3>
-                <p className="text-muted-foreground">{benefit.description}</p>
-              </div>
-            </li>
+                <div>
+                  <h3 className="mb-2 text-xl">{benefit.title}</h3>
+                  <p className="text-muted-foreground">{benefit.description}</p>
+                </div>
+              </li>
+            </AnimateOnScroll>
           ))}
         </ul>
       </div>
