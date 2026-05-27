@@ -33,16 +33,19 @@ export function Services() {
                 className="card-lift group block overflow-hidden rounded-lg border border-border bg-card hover:border-primary"
               >
                 <article>
-                  <div className="relative h-56 overflow-hidden">
-                    <Image
-                      src={procedure.cardImage}
-                      alt={procedure.cardImageAlt}
-                      width={IMAGE_SIZES.card.width}
-                      height={IMAGE_SIZES.card.height}
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
+                  <figure>
+                    <div className="relative h-56 overflow-hidden">
+                      <Image
+                        src={procedure.cardImage}
+                        alt={procedure.cardImageAlt}
+                        width={IMAGE_SIZES.card.width}
+                        height={IMAGE_SIZES.card.height}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <figcaption className="sr-only">{procedure.cardImageAlt}</figcaption>
+                  </figure>
                   <div className="p-6">
                     <h3 className="mb-2 text-xl text-primary group-hover:underline">
                       {getProcedureCardTitle(procedure)}

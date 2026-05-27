@@ -37,6 +37,10 @@ export function About() {
               sizes="(max-width: 768px) 100vw, 50vw"
               className="h-full w-full object-cover"
             />
+            <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+              {siteConfig.owner} — сертифициран PhiBrows специалист в {siteConfig.name},{" "}
+              {siteConfig.address.city}
+            </figcaption>
           </figure>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CONTENT_LAST_MODIFIED, CONTENT_PUBLISHED } from "./aeo";
 import { heroImage, siteConfig } from "./site";
 
 const siteUrl = siteConfig.url;
@@ -83,6 +84,8 @@ export const rootMetadata: Metadata = {
   },
   category: "beauty",
   other: {
+    "article:published_time": CONTENT_PUBLISHED,
+    "article:modified_time": CONTENT_LAST_MODIFIED,
     "geo.region": "BG-24",
     "geo.placename": "Стара Загора",
     "geo.position": `${siteConfig.geo.latitude};${siteConfig.geo.longitude}`,

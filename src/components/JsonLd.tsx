@@ -1,3 +1,6 @@
+import { authorProfile, authorSameAs, organizationSameAs } from "@/lib/geo-content";
+import { guideUrl } from "@/lib/guide";
+import { CONTENT_LAST_MODIFIED, CONTENT_PUBLISHED } from "@/lib/aeo";
 import { getLowestPriceEur } from "@/lib/currency";
 import { geoKnowsAbout } from "@/lib/geo";
 import { getAllProcedures } from "@/lib/procedures";
@@ -6,17 +9,39 @@ import { faqs, heroImage, siteConfig } from "@/lib/site";
 export function JsonLd() {
   const procedures = getAllProcedures();
   const base = siteConfig.url;
+  const logoUrl = `${base}/phiBrowsNG_logo.svg`;
 
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "BeautySalon",
+        "@type": "Organization",
+        "@id": `${base}/#org`,
+        name: siteConfig.name,
+        legalName: siteConfig.legalName,
+        url: base,
+        logo: { "@type": "ImageObject", url: logoUrl },
+        image: heroImage,
+        email: siteConfig.email[0],
+        telephone: siteConfig.phone,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: siteConfig.address.street,
+          addressLocality: siteConfig.address.city,
+          postalCode: siteConfig.address.postalCode,
+          addressCountry: siteConfig.address.countryCode,
+        },
+        sameAs: [...organizationSameAs],
+        founder: { "@id": `${base}/#author` },
+      },
+      {
+        "@type": ["BeautySalon", "LocalBusiness"],
         "@id": `${base}/#organization`,
         name: siteConfig.name,
         alternateName: ["PhiBrows NG", "phibrowsng", siteConfig.owner],
         description: siteConfig.description,
         url: base,
+        parentOrganization: { "@id": `${base}/#org` },
         telephone: siteConfig.phone,
         email: siteConfig.email[0],
         image: heroImage,
@@ -29,8 +54,8 @@ export function JsonLd() {
           containedInPlace: { "@type": "Country", name: "Bulgaria" },
         },
         knowsAbout: [...geoKnowsAbout],
-        founder: { "@id": `${base}/#person` },
-        employee: { "@id": `${base}/#person` },
+        founder: { "@id": `${base}/#author` },
+        employee: { "@id": `${base}/#author` },
         address: {
           "@type": "PostalAddress",
           streetAddress: siteConfig.address.street,
@@ -49,7 +74,7 @@ export function JsonLd() {
           opens: slot.opens,
           closes: slot.closes,
         })),
-        sameAs: [siteConfig.social.instagram, siteConfig.social.facebook],
+        sameAs: [...organizationSameAs],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Процедури за вежди и мигли",
@@ -73,13 +98,28 @@ export function JsonLd() {
         },
       },
       {
-        "@type": "Person",
-        "@id": `${base}/#person`,
-        name: siteConfig.owner,
-        jobTitle: "Сертифициран специалист по перманентен грим на вежди (PhiBrows, BoldBrows, PowderBrows)",
-        worksFor: { "@id": `${base}/#organization` },
+        "@type": ["Person", "Author"],
+        "@id": `${base}/#author`,
+        name: authorProfile.name,
+        jobTitle: authorProfile.role,
+        description: `${authorProfile.name} — ${authorProfile.role} в ${siteConfig.name}, ${siteConfig.address.city}`,
+        url: base,
+        image: heroImage,
+        worksFor: { "@id": `${base}/#org` },
         knowsAbout: [...geoKnowsAbout],
         areaServed: siteConfig.address.city,
+        sameAs: [...authorSameAs],
+        alumniOf: {
+          "@type": "Organization",
+          name: "Phi Academy",
+          url: "https://phibrows.com/",
+        },
+        hasCredential: authorProfile.credentials.map((name) => ({
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "certification",
+          name,
+          recognizedBy: { "@type": "Organization", name: "Phi Academy" },
+        })),
       },
       {
         "@type": "WebSite",
@@ -88,19 +128,44 @@ export function JsonLd() {
         name: siteConfig.name,
         description: siteConfig.description,
         inLanguage: siteConfig.language,
-        publisher: { "@id": `${base}/#organization` },
+        publisher: { "@id": `${base}/#org` },
         about: { "@id": `${base}/#organization` },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${guideUrl}?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
       },
       {
         "@type": "WebPage",
         "@id": `${base}/#webpage`,
         url: base,
-        name: `${siteConfig.name} | ${siteConfig.owner} — вежди и мигли, Стара Загора`,
-        description: siteConfig.description,
+        name: `${siteConfig.name} — вежди и мигли в Стара Загора`,
+        description: siteConfig.metaDescription,
         inLanguage: siteConfig.language,
+        datePublished: CONTENT_PUBLISHED,
+        dateModified: CONTENT_LAST_MODIFIED,
         isPartOf: { "@id": `${base}/#website` },
-        about: { "@id": `${base}/#organization` },
+        about: { "@id": `${base}/#org` },
         mainEntity: { "@id": `${base}/#organization` },
+        author: { "@id": `${base}/#author` },
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: [".speakable-summary"],
+        },
+        significantLink: guideUrl,
+      },
+      {
+        "@type": "VideoObject",
+        "@id": `${base}/#video-social`,
+        name: `${siteConfig.name} — видео в Instagram`,
+        description: `Процедури и резултати от ${siteConfig.owner}`,
+        contentUrl: siteConfig.social.instagram,
+        uploadDate: CONTENT_PUBLISHED,
+        publisher: { "@id": `${base}/#org` },
       },
       {
         "@type": "FAQPage",

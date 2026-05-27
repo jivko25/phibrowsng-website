@@ -1,3 +1,4 @@
+import { CONTENT_LAST_MODIFIED, formatContentDate } from "@/lib/aeo";
 import { siteConfig } from "@/lib/site";
 
 export function HomeIntro() {
@@ -10,23 +11,22 @@ export function HomeIntro() {
         <h2 id="intro-heading" className="mb-6 text-3xl text-primary md:text-4xl">
           PhiBrows NG — студио за вежди и мигли в {siteConfig.address.city}
         </h2>
-        <p className="mb-4 text-lg leading-relaxed text-foreground/90">
-          Аз съм <strong>{siteConfig.owner}</strong>, сертифициран специалист по PhiBrows,
-          BoldBrows и PowderBrows. В моето студио в центъра на {siteConfig.address.city}{" "}
-          предлагам микроблейдинг, пудрова микропигментация и ламиниране на вежди и мигли.
+        <p className="speakable-summary mb-4 text-lg leading-relaxed text-foreground/90">
+          Добре дошли! Аз съм <strong>{siteConfig.owner}</strong> — вашият специалист по
+          PhiBrows, BoldBrows и PowderBrows. В нашето студио в центъра на{" "}
+          {siteConfig.address.city} предлагаме микроблейдинг, пудрова микропигментация и
+          ламиниране на вежди и мигли.
         </p>
         <p className="mb-4 text-lg leading-relaxed text-foreground/90">
-          Първо провеждам консултация — заедно избираме форма, нюанс и техника според типа
-          кожа и вашите очаквания. След това работя с премиум пигменти и стерилни
-          инструменти, за да постигнем естествен и дълготраен резултат.
+          Първо правим консултация заедно — избираме форма, нюанс и техника според вашия
+          тип кожа. След това работим с премиум пигменти и стерилни инструменти, за да
+          постигнете естествен и дълготраен резултат.
         </p>
         <p className="text-sm text-muted-foreground">
-          Автор: {siteConfig.owner} · Последна актуализация:{" "}
-          {new Date().toLocaleDateString("bg-BG", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
+          <strong>Автор:</strong> {siteConfig.owner} · <strong>Актуализация:</strong>{" "}
+          <time dateTime={CONTENT_LAST_MODIFIED}>
+            {formatContentDate(CONTENT_LAST_MODIFIED)}
+          </time>
         </p>
       </div>
     </section>

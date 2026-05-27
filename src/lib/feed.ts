@@ -1,3 +1,4 @@
+import { guideMetaDescription, guideTitle, guideUrl } from "./guide";
 import { getAllProcedures } from "./procedures";
 import { siteConfig } from "./site";
 
@@ -20,6 +21,12 @@ export function generateRssFeed(): string {
       title: `${siteConfig.name} — начало`,
       link: base,
       description: siteConfig.metaDescription,
+      pubDate: lastBuild,
+    },
+    {
+      title: `${guideTitle} | ${siteConfig.name}`,
+      link: guideUrl,
+      description: guideMetaDescription,
       pubDate: lastBuild,
     },
     ...procedures.map((p) => ({

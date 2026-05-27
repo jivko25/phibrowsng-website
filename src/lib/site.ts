@@ -48,6 +48,7 @@ export const navLinks = [
   { href: "/#proceduri", label: "Процедури" },
   { href: "/#benefits", label: "Предимства" },
   { href: "/#about", label: "За мен" },
+  { href: "/naruchnik", label: "Наръчник" },
   { href: "/#faq", label: "Въпроси" },
   { href: "/#contact", label: "Контакти" },
 ] as const;
@@ -75,17 +76,17 @@ export const benefits = [
 
 export const faqs = [
   {
-    question: "Как да запазя час?",
+    question: "Как да запазите час при PhiBrows NG?",
     answer:
       "Обадете се на телефона, пишете във Viber (💜) или използвайте контактите в долната част на страницата.",
   },
   {
-    question: "Колко време отнема микроблейдингът?",
+    question: "Колко време отнема микроблейдингът BoldBrows?",
     answer:
       "Първата процедура отнема 2–3 часа. Включва консултация и избор на форма и цвят.",
   },
   {
-    question: "Има ли нужда от корекция?",
+    question: "Имате ли нужда от корекция след процедурата?",
     answer:
       "Да. Препоръчвам корекция след 4–6 седмици. Така резултатът е по-перфектен и дълготраен.",
   },
@@ -94,7 +95,7 @@ export const faqs = [
     answer: "Ефектът обикновено се задържа между 6 и 8 седмици при правилна домашна грижа.",
   },
   {
-    question: "Къде се намира студиото?",
+    question: "Къде се намира вашето студио в Стара Загора?",
     answer: `Студиото е в ${siteConfig.address.city}, ${siteConfig.address.street}.`,
   },
 ] as const;

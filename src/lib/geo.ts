@@ -44,6 +44,7 @@ export function generateLlmsTxt(): string {
     "",
     "## Ключови страници",
     `- Начало: ${siteConfig.url}/`,
+    `- Пълен наръчник (GEO/AEO): ${siteConfig.url}/naruchnik`,
     ...procedures.map(
       (p) => `- ${getProcedureCardTitle(p)}: ${siteConfig.url}/proceduri/${p.slug}`,
     ),

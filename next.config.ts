@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const CONTENT_LAST_MODIFIED = "2026-05-27";
+
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
@@ -30,10 +32,14 @@ const nextConfig: NextConfig = {
     root: process.cwd(),
   },
   async headers() {
+    const lastModified = new Date(CONTENT_LAST_MODIFIED).toUTCString();
     return [
       {
         source: "/:path*",
-        headers: securityHeaders,
+        headers: [
+          ...securityHeaders,
+          { key: "Last-Modified", value: lastModified },
+        ],
       },
     ];
   },

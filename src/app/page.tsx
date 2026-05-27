@@ -1,4 +1,5 @@
 import { About } from "@/components/About";
+import { GuideTeaser } from "@/components/GuideTeaser";
 import { HomeIntro } from "@/components/HomeIntro";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { Benefits } from "@/components/Benefits";
@@ -25,6 +26,7 @@ export default function HomePage() {
         <AnimateOnScroll delay={120}>
           <About />
         </AnimateOnScroll>
+        <GuideTeaser />
         <AnimateOnScroll delay={80}>
           <FAQ />
         </AnimateOnScroll>

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllProcedures } from "@/lib/procedures";
+import { guideUrl } from "@/lib/guide";
 import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -21,6 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...procedurePages,
+    {
+      url: guideUrl,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
     {
       url: `${base}/politika-poveritelnost`,
       lastModified,

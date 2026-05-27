@@ -9,26 +9,20 @@ export function FAQ() {
             Често задавани въпроси
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Тук отговарям на най-честите въпроси за записване, продължителност и грижа след
-            процедура. Ако не намерите отговор, пишете ми по телефон или Viber — с удоволствие
-            ще ви помогна.
+            Отговори на кратки въпроси за вашия час, подготовка и грижа след процедура. Ако
+            имате допълнителни въпроси, пишете ни — ще ви отговорим възможно най-скоро.
           </p>
         </header>
 
-        <div className="space-y-4">
+        <div className="space-y-8">
           {faqs.map((faq) => (
-            <details
+            <article
               key={faq.question}
-              className="group rounded-lg border border-border bg-background p-6"
+              className="rounded-lg border border-border bg-background p-6"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between text-lg">
-                <span className="text-primary">{faq.question}</span>
-                <span className="text-2xl text-primary transition-transform group-open:rotate-45" aria-hidden>
-                  +
-                </span>
-              </summary>
-              <p className="mt-4 text-muted-foreground">{faq.answer}</p>
-            </details>
+              <h3 className="mb-3 text-lg text-primary">{faq.question}</h3>
+              <p className="aeo-answer text-muted-foreground">{faq.answer}</p>
+            </article>
           ))}
         </div>
       </div>
