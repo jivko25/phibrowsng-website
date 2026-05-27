@@ -12,6 +12,18 @@ npm run dev
 
 Отворете [http://localhost:3000](http://localhost:3000).
 
+## GEO (оптимизация за AI чатботове)
+
+Сайтът е подготвен за цитиране от ChatGPT, Perplexity, Claude и др.:
+
+- **`/llms.txt`** — кратък машинно четим профил на бизнеса (стандарт за LLM)
+- **`/llms-full.txt`** — пълно съдържание: процедури, цени, FAQ
+- **JSON-LD `@graph`** — BeautySalon, Person, FAQPage, Service, WebPage
+- **robots.txt** — изрично разрешени AI crawlers (GPTBot, ClaudeBot, PerplexityBot и др.)
+- **Скрито семантично резюме** (`CitableSummary`) — точни факти за цитиране
+
+След deploy проверете: `https://вашият-домейн.bg/llms.txt`
+
 ## SEO възможности
 
 - **Server-Side Rendering** — цялото съдържание се рендерира на сървъра

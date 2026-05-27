@@ -21,5 +21,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...procedurePages,
+    {
+      url: `${base}/llms.txt`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.3,
+    },
+    {
+      url: `${base}/llms-full.txt`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.3,
+    },
   ];
 }
