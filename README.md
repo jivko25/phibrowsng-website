@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PhiBrows NG — Next.js
 
-## Getting Started
+SEO-оптимизиран сайт за **Надежда Георгиева** — микроблейдинг, пудрова микропигментация и ламиниране в Стара Загора.
 
-First, run the development server:
+## Стартиране
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Отворете [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## SEO възможности
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Server-Side Rendering** — цялото съдържание се рендерира на сървъра
+- **Metadata API** — title, description, Open Graph, Twitter Cards, geo тагове
+- **JSON-LD** — BeautySalon, WebSite, WebPage, FAQPage, BreadcrumbList
+- **sitemap.xml** и **robots.txt** — автоматично генерирани
+- **Семантичен HTML** — `main`, `section`, `article`, `nav`, `address`
+- **next/image** — AVIF/WebP, lazy loading, responsive `sizes`
+- **lang="bg"** — български език за търсачките
+- **Достъпност** — skip link, ARIA етикети, семантични заглавия
 
-## Learn More
+## Конфигурация
 
-To learn more about Next.js, take a look at the following resources:
+Задайте реалния домейн в `.env.local`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+NEXT_PUBLIC_SITE_URL=https://phibrowsng.com
+NEXT_PUBLIC_PHONE=+359XXXXXXXXX
+NEXT_PUBLIC_PHONE_DISPLAY=+359 XX XXX XXXX
+NEXT_PUBLIC_VIBER_NUMBER=359XXXXXXXXX
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Цените и текстовете на процедурите се редактират в `src/lib/procedures.ts`.
 
-## Deploy on Vercel
+## Production build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npm start
+```
