@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: siteConfig.name,
+    name: `${siteConfig.name} — ${siteConfig.owner}`,
     short_name: siteConfig.name,
     description: siteConfig.description,
     start_url: "/",
@@ -13,5 +13,19 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "bg",
     orientation: "portrait-primary",
     categories: ["beauty", "lifestyle"],
+    icons: [
+      {
+        src: "/web-app-manifest-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "maskable",
+      },
+      {
+        src: "/web-app-manifest-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
+      },
+    ],
   };
 }
