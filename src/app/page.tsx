@@ -1,4 +1,5 @@
 import { About } from "@/components/About";
+import { HomeIntro } from "@/components/HomeIntro";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { Benefits } from "@/components/Benefits";
 import { Contact } from "@/components/Contact";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Header />
       <main id="main-content">
         <Hero />
+        <HomeIntro />
         <AnimateOnScroll>
           <Services />
         </AnimateOnScroll>

@@ -22,16 +22,16 @@ export function Hero() {
         </p>
         <h1
           id="hero-heading"
-          className="text-shimmer animate-fade-up mb-6 text-5xl md:text-7xl"
+          className="text-shimmer animate-fade-up mb-4 text-4xl md:text-6xl"
           style={{ "--fade-delay": "250ms" } as CSSProperties}
         >
-          {siteConfig.tagline}
+          {siteConfig.name} — вежди и мигли в {siteConfig.address.city}
         </h1>
         <p
           className="animate-fade-up mb-8 text-xl text-foreground/90 md:text-2xl"
           style={{ "--fade-delay": "400ms" } as CSSProperties}
         >
-          Микроблейдинг, пудрова микропигментация и ламиниране в {siteConfig.address.city}
+          {siteConfig.tagline}. Микроблейдинг, пудрова микропигментация и ламиниране.
         </p>
         <Link
           href="#contact"

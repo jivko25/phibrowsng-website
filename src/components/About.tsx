@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { IMAGE_SIZES } from "@/lib/image-sizes";
 import { aboutImage, siteConfig } from "@/lib/site";
 
 export function About() {
@@ -11,27 +12,30 @@ export function About() {
               За мен
             </h2>
             <p className="mb-4 text-lg text-foreground/90">
-              Здравейте, аз съм <strong className="text-primary">{siteConfig.owner}</strong> —
-              сертифициран специалист по перманентен грим на вежди с методи PhiBrows, BoldBrows
-              и PowderBrows.
+              Здравейте, аз съм <strong className="text-primary">{siteConfig.owner}</strong>.
+              Работя като сертифициран специалист по перманентен грим на вежди. Използвам
+              методи PhiBrows, BoldBrows и PowderBrows.
             </p>
             <p className="mb-4 text-lg text-foreground/90">
-              В студиото ми в {siteConfig.address.city} съчетавам прецизност, естетика и
-              индивидуален подход, за да постигнем вежди и мигли, които подчертават
-              естествената ви красота.
+              В моето студио в {siteConfig.address.city} съчетавам прецизност и естетика.
+              Целта ми е естествен резултат — вежди и мигли, които подчертават лицето ви.
             </p>
-            <p className="text-lg text-foreground/90">
-              Всяка процедура започва с консултация — заедно избираме най-подходящата техника
-              и грижа според вашите нужди и очаквания.
+            <p className="mb-4 text-lg text-foreground/90">
+              Първо провеждам консултация. След това заедно избираме техника и грижа според
+              вашите нужди.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Автор: {siteConfig.owner} · Специалист, {siteConfig.name}
             </p>
           </div>
           <figure className="relative h-96 overflow-hidden rounded-lg">
             <Image
               src={aboutImage}
               alt={`${siteConfig.owner} — специалист по вежди в ${siteConfig.address.city}`}
-              fill
+              width={IMAGE_SIZES.about.width}
+              height={IMAGE_SIZES.about.height}
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+              className="h-full w-full object-cover"
             />
           </figure>
         </div>

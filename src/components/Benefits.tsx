@@ -10,8 +10,11 @@ export function Benefits() {
           <h2 id="benefits-heading" className="mb-4 text-4xl text-primary md:text-5xl">
             Защо да изберете нас
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Вашият комфорт и резултати са наш приоритет
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            В PhiBrows NG вашият комфорт и резултат са мой приоритет. Затова работя с
+            сертифицирани методи и премиум продукти. Освен това всяка процедура е
+            персонална — подбирам форма, цвят и техника според вашето лице и тип кожа.
+            В резултат получавате естествен вид и дълготраен ефект.
           </p>
         </header>
 

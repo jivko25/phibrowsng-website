@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
 type HeroSlide = {
   src: string;
   alt: string;

@@ -8,8 +8,10 @@ export function FAQ() {
           <h2 id="faq-heading" className="mb-4 text-4xl text-primary md:text-5xl">
             Често задавани въпроси
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Отговори на най-често срещаните въпроси
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            Тук отговарям на най-честите въпроси за записване, продължителност и грижа след
+            процедура. Ако не намерите отговор, пишете ми по телефон или Viber — с удоволствие
+            ще ви помогна.
           </p>
         </header>
 

@@ -6,10 +6,10 @@ const siteUrl = siteConfig.url;
 export const rootMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteConfig.name} | ${siteConfig.owner} — вежди и мигли, Стара Загора`,
+    default: `${siteConfig.name} — вежди и мигли в Стара Загора | ${siteConfig.owner}`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.description,
+  description: siteConfig.metaDescription,
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -40,15 +40,21 @@ export const rootMetadata: Metadata = {
   },
   alternates: {
     canonical: "/",
-    languages: { "bg-BG": "/" },
+    languages: {
+      "bg-BG": "/",
+      "x-default": "/",
+    },
+    types: {
+      "application/rss+xml": `${siteUrl}/feed.xml`,
+    },
   },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
     url: siteUrl,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} | ${siteConfig.tagline}`,
-    description: siteConfig.description,
+    title: `${siteConfig.name} — вежди и мигли в Стара Загора`,
+    description: siteConfig.metaDescription,
     images: [
       {
         url: heroImage,
@@ -61,7 +67,7 @@ export const rootMetadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${siteConfig.tagline}`,
-    description: siteConfig.description,
+    description: siteConfig.metaDescription,
     images: [heroImage],
   },
   robots: {

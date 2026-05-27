@@ -13,8 +13,10 @@ export function Contact() {
           <h2 id="contact-heading" className="mb-4 text-4xl text-primary md:text-5xl">
             Свържете се с мен
           </h2>
-          <p className="text-lg text-muted-foreground">
-            {siteConfig.address.city} · {siteConfig.owner}
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            Студиото е в центъра на {siteConfig.address.city}, на {siteConfig.address.street}.
+            Работно време: понеделник–петък 10:00–19:00, събота 10:00–17:00. За час се
+            обадете, пишете във Viber или на имейл — ще ви отговоря възможно най-скоро.
           </p>
         </header>
 

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { IMAGE_SIZES } from "@/lib/image-sizes";
 import {
   getAllProcedures,
   getLowestPrice,
@@ -16,8 +17,11 @@ export function Services() {
           <h2 id="proceduri-heading" className="mb-4 text-4xl text-primary md:text-5xl">
             Процедури
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Специализирани услуги за вежди и мигли при Надежда Георгиева
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            В PhiBrows NG предлагам четири основни процедури за вежди и мигли. Всяка услуга
+            започва с консултация — така избираме техника, форма и цвят според вашия тип кожа.
+            Освен това можете да разгледате цени, продължителност и подробности за всяка
+            процедура на отделната страница.
           </p>
         </header>
 
@@ -33,9 +37,10 @@ export function Services() {
                     <Image
                       src={procedure.cardImage}
                       alt={procedure.cardImageAlt}
-                      fill
+                      width={IMAGE_SIZES.card.width}
+                      height={IMAGE_SIZES.card.height}
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-6">

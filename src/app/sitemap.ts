@@ -22,6 +22,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...procedurePages,
     {
+      url: `${base}/politika-poveritelnost`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `${base}/usloviya`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `${base}/feed.xml`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.3,
+    },
+    {
       url: `${base}/llm.txt`,
       lastModified,
       changeFrequency: "monthly",

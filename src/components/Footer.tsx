@@ -71,6 +71,18 @@ export function Footer() {
           </div>
         </div>
 
+        <nav
+          className="mb-6 flex flex-wrap justify-center gap-4 text-sm"
+          aria-label="Правна информация"
+        >
+          <Link href="/politika-poveritelnost" className="text-muted-foreground hover:text-primary">
+            Политика за поверителност
+          </Link>
+          <Link href="/usloviya" className="text-muted-foreground hover:text-primary">
+            Общи условия
+          </Link>
+        </nav>
+
         <div className="border-t border-border pt-8 text-center text-muted-foreground">
           <p>
             &copy; {year} {siteConfig.name} · {siteConfig.owner}. Всички права запазени.
