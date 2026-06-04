@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Heart, Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { BookingCTA } from "./BookingCTA";
 import { ViberButton } from "./ViberButton";
@@ -44,12 +44,10 @@ export function Contact() {
 
             <div className="flex items-start gap-4">
               <div
-                className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[#7360f2]/20"
+                className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/20"
                 aria-hidden
               >
-                <span className="text-xl" role="img" aria-hidden>
-                  💜
-                </span>
+                <Heart className="h-6 w-6 fill-primary text-primary" strokeWidth={1.5} aria-hidden />
               </div>
               <div>
                 <h3 className="mb-1 text-xl">Viber</h3>

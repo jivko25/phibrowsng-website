@@ -1,4 +1,4 @@
-import { Phone } from "lucide-react";
+import { Heart, Phone } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { GoldenRain } from "./GoldenRain";
@@ -43,8 +43,16 @@ export function BookingCTA({
         </Link>
       </div>
 
-      <p className="relative z-10 mt-6 text-sm text-muted-foreground">
-        Натиснете 💜 за директен чат във Viber с {siteConfig.owner}
+      <p className="relative z-10 mt-6 inline-flex flex-wrap items-center justify-center gap-1.5 text-sm text-muted-foreground">
+        <span>Натиснете</span>
+        <Heart
+          className="inline h-4 w-4 shrink-0 fill-primary text-primary"
+          aria-hidden
+          strokeWidth={1.5}
+        />
+        <span>
+          за директен чат във Viber с {siteConfig.owner}
+        </span>
       </p>
     </section>
   );
