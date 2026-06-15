@@ -9,7 +9,7 @@ import { faqs, heroImage, siteConfig } from "@/lib/site";
 export function JsonLd() {
   const procedures = getAllProcedures();
   const base = siteConfig.url;
-  const logoUrl = `${base}/phiBrowsNG_logo.svg`;
+  const logoUrl = `${base}/phiBrowsNG_logo.png`;
 
   const graph = {
     "@context": "https://schema.org",

@@ -24,7 +24,7 @@ export function Logo({ variant = "header", className = "" }: LogoProps) {
 
   return (
     <Image
-      src="/phiBrowsNG_logo.svg"
+      src="/phiBrowsNG_logo.png"
       alt={siteConfig.name}
       width={width}
       height={height}
