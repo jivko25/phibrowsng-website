@@ -117,16 +117,31 @@ export function AeoGuide() {
         </article>
 
         <article id="what-why-how" className="mb-12 space-y-8">
-          {(["what", "why", "how"] as const).map((key) => (
-            <div key={key}>
-              <h3 className="mb-3 text-2xl text-primary">{whatWhyHow[key].heading}</h3>
-              {whatWhyHow[key].paragraphs.map((p) => (
-                <p key={p.slice(0, 24)} className="aeo-answer mb-3 leading-relaxed text-foreground/90">
-                  {p}
-                </p>
+          <div>
+            <h3 className="mb-3 text-2xl text-primary">{whatWhyHow.what.heading}</h3>
+            {whatWhyHow.what.paragraphs.map((p) => (
+              <p key={p.slice(0, 24)} className="aeo-answer mb-3 leading-relaxed text-foreground/90">
+                {p}
+              </p>
+            ))}
+          </div>
+          <div>
+            <h3 className="mb-3 text-2xl text-primary">{whatWhyHow.why.heading}</h3>
+            {whatWhyHow.why.paragraphs.map((p) => (
+              <p key={p.slice(0, 24)} className="aeo-answer mb-3 leading-relaxed text-foreground/90">
+                {p}
+              </p>
+            ))}
+          </div>
+          <div>
+            <h3 className="mb-3 text-2xl text-primary">{whatWhyHow.how.heading}</h3>
+            <p className="mb-4 text-foreground/90">{whatWhyHow.how.intro}</p>
+            <ol className="list-decimal space-y-3 pl-5 text-foreground/90">
+              {whatWhyHow.how.steps.map((step) => (
+                <li key={step.slice(0, 40)}>{step}</li>
               ))}
-            </div>
-          ))}
+            </ol>
+          </div>
         </article>
 
         <article id="boldbrows-vs-powder" className="mb-12 overflow-x-auto">
@@ -159,7 +174,7 @@ export function AeoGuide() {
           <h3 className="mb-4 text-2xl text-primary">Данни от нашата практика</h3>
           <p className="mb-4 text-foreground/90">
             В нашата практика в {siteConfig.name} проследяваме трайност, корекции и
-            удовлетвореност от 2018 г. Ето ключови показатели:
+            удовлетвореност от 2024 г. Ето ключови показатели:
           </p>
           <ul className="space-y-4">
             {studioStatistics.map((stat) => (
@@ -183,14 +198,7 @@ export function AeoGuide() {
           <h3 className="mb-4 text-2xl text-primary">
             Как да запазите час при нас в {siteConfig.address.city}?
           </h3>
-          <p className="mb-4 text-foreground/90">
-            Следвайте тези стъпки — така ще получите бърз отговор и подготвен термин:
-          </p>
-          <ol className="list-decimal space-y-3 pl-5 text-foreground/90">
-            {bookingSteps.map((step, i) => (
-              <li key={i}>{step}</li>
-            ))}
-          </ol>
+          <p className="aeo-answer text-lg text-foreground/90">{bookingSteps[0]}</p>
         </article>
 
         <article id="expert-quote" className="mb-12">
@@ -214,9 +222,11 @@ export function AeoGuide() {
               <li key={step}>{step}</li>
             ))}
           </ol>
-          <p className="mb-2 text-foreground/90">
-            <strong>Резултат:</strong> {caseStudy.outcome}
-          </p>
+          {caseStudy.outcome ? (
+            <p className="mb-2 text-foreground/90">
+              <strong>Резултат:</strong> {caseStudy.outcome}
+            </p>
+          ) : null}
           <p className="text-sm text-muted-foreground">{caseStudy.disclaimer}</p>
         </article>
 
@@ -228,14 +238,22 @@ export function AeoGuide() {
             ))}
           </ul>
           <p className="mb-4 text-foreground/90">{trustSignals.reviewsNote}</p>
-          <p>
+          <p className="mb-2 flex flex-wrap gap-4">
             <a
-              href={trustSignals.instagram}
+              href={trustSignals.facebook}
               rel="noopener noreferrer me"
               target="_blank"
               className="text-primary hover:underline"
             >
-              Вижте отзиви и снимки в Instagram →
+              Facebook →
+            </a>
+            <a
+              href={trustSignals.tiktok}
+              rel="noopener noreferrer me"
+              target="_blank"
+              className="text-primary hover:underline"
+            >
+              TikTok →
             </a>
           </p>
           <dl className="mt-6 grid gap-3 rounded-lg border border-border bg-background p-6 sm:grid-cols-2">
@@ -249,7 +267,9 @@ export function AeoGuide() {
         </article>
 
         <article id="tips" className="mb-12">
-          <h3 className="mb-4 text-2xl text-primary">Какво трябва да направите преди процедурата</h3>
+          <h3 className="mb-4 text-2xl text-primary">
+            Какви правила трябва да се спазват преди процедурите BoldBrows и PowderBrows?
+          </h3>
           <ul className="list-disc space-y-3 pl-5 text-foreground/90">
             {actionableTips.map((tip) => (
               <li key={tip}>{tip}</li>
@@ -276,7 +296,6 @@ export function AeoGuide() {
             <thead>
               <tr className="border-b border-border bg-background">
                 <th className="p-3 text-primary">Процедура</th>
-                <th className="p-3 text-primary">Продължителност</th>
                 <th className="p-3 text-primary">Трайност</th>
                 <th className="p-3 text-primary">Цена от</th>
               </tr>
@@ -288,8 +307,10 @@ export function AeoGuide() {
                     <Link href={`/proceduri/${row.slug}`} className="text-primary hover:underline">
                       {row.name}
                     </Link>
+                    {row.comingSoon ? (
+                      <span className="ml-2 text-xs text-muted-foreground">(скоро)</span>
+                    ) : null}
                   </td>
-                  <td className="p-3">{row.duration}</td>
                   <td className="p-3">{row.longevity}</td>
                   <td className="p-3">{row.fromPrice}</td>
                 </tr>
@@ -349,12 +370,21 @@ export function AeoGuide() {
           <p className="text-foreground/90">
             Вижте процедури в{" "}
             <a
-              href={siteConfig.social.instagram}
+              href={siteConfig.social.facebook}
               rel="noopener noreferrer me"
               target="_blank"
               className="text-primary hover:underline"
             >
-              @phibrowsng в Instagram
+              Facebook
+            </a>{" "}
+            и{" "}
+            <a
+              href={siteConfig.social.tiktok}
+              rel="noopener noreferrer me"
+              target="_blank"
+              className="text-primary hover:underline"
+            >
+              TikTok
             </a>
             .
           </p>

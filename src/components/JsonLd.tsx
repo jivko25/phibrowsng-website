@@ -10,6 +10,9 @@ export function JsonLd() {
   const procedures = getAllProcedures();
   const base = siteConfig.url;
   const logoUrl = `${base}/phiBrowsNG_logo.png`;
+  const heroImageUrl = heroImage.startsWith("http")
+    ? heroImage
+    : `${base}${heroImage}`;
 
   const graph = {
     "@context": "https://schema.org",
@@ -21,7 +24,7 @@ export function JsonLd() {
         legalName: siteConfig.legalName,
         url: base,
         logo: { "@type": "ImageObject", url: logoUrl },
-        image: heroImage,
+        image: heroImageUrl,
         email: siteConfig.email[0],
         telephone: siteConfig.phone,
         address: {
@@ -44,7 +47,7 @@ export function JsonLd() {
         parentOrganization: { "@id": `${base}/#org` },
         telephone: siteConfig.phone,
         email: siteConfig.email[0],
-        image: heroImage,
+        image: heroImageUrl,
         priceRange: "$$",
         currenciesAccepted: "EUR, BGN",
         paymentAccepted: "Cash, Card",
@@ -104,7 +107,7 @@ export function JsonLd() {
         jobTitle: authorProfile.role,
         description: `${authorProfile.name} — ${authorProfile.role} в ${siteConfig.name}, ${siteConfig.address.city}`,
         url: base,
-        image: heroImage,
+        image: heroImageUrl,
         worksFor: { "@id": `${base}/#org` },
         knowsAbout: [...geoKnowsAbout],
         areaServed: siteConfig.address.city,

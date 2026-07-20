@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const CONTENT_LAST_MODIFIED = "2026-05-27";
+const CONTENT_LAST_MODIFIED = "2026-07-20";
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -17,6 +17,7 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' https://images.unsplash.com data: blob:",
+      "media-src 'self'",
       "font-src 'self'",
       "connect-src 'self'",
       "frame-src https://maps.google.com https://www.google.com",

@@ -13,16 +13,13 @@ export function About() {
             </h2>
             <p className="mb-4 text-lg text-foreground/90">
               Здравейте, аз съм <strong className="text-primary">{siteConfig.owner}</strong>.
-              Работя като сертифициран специалист по перманентен грим на вежди. Използвам
-              методи PhiBrows, BoldBrows и PowderBrows.
+              Сертифициран артист по микроблейдинг (BoldBrows) и PowderBrows на PhiAcademy,
+              както и артист по Eyelash Lift and Tint Course, Eyebrow Henna and Mapping
+              Course и Eyebrow Lift and Tint Course на Wellty Academy.
             </p>
             <p className="mb-4 text-lg text-foreground/90">
               В моето студио в {siteConfig.address.city} съчетавам прецизност и естетика.
               Целта ми е естествен резултат — вежди и мигли, които подчертават лицето ви.
-            </p>
-            <p className="mb-4 text-lg text-foreground/90">
-              Първо провеждам консултация. След това заедно избираме техника и грижа според
-              вашите нужди.
             </p>
             <p className="text-sm text-muted-foreground">
               Автор: {siteConfig.owner} · Специалист, {siteConfig.name}
@@ -38,8 +35,8 @@ export function About() {
               className="h-full w-full object-cover"
             />
             <figcaption className="mt-3 text-center text-sm text-muted-foreground">
-              {siteConfig.owner} — сертифициран PhiBrows специалист в {siteConfig.name},{" "}
-              {siteConfig.address.city}
+              {siteConfig.owner} — сертифициран артист BoldBrows и PowderBrows,{" "}
+              {siteConfig.name}, {siteConfig.address.city}
             </figcaption>
           </figure>
         </div>
