@@ -166,6 +166,14 @@ export const heroImages = [
     src: "/microblading/10-result.jpg",
     alt: "Резултат от микроблейдинг BoldBrows",
   },
+  {
+    src: "/migli/card.jpg",
+    alt: "Ламиниране на мигли — преди и след",
+  },
+  {
+    src: "/migli/01-before-after.jpg",
+    alt: "Ламиниране на мигли — извити и по-тъмни мигли",
+  },
 ] as const;
 
 export const aboutImage =

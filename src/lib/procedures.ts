@@ -315,21 +315,60 @@ export const procedures: Procedure[] = [
       { name: "Подхранваща терапия", priceEur: 6 },
       { name: "Подхранваща терапия (курс от 4 бр.)", priceEur: 16 },
     ],
-    cardImage:
-      "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    cardImageAlt: "Ламиниране на мигли",
+    cardImage: "/migli/card.jpg",
+    cardImageAlt: "Ламиниране на мигли — преди и след",
     media: [
       {
-        src: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
-        alt: "Ламиниране на мигли",
+        src: "/migli/card.jpg",
+        alt: "Ламиниране на мигли — преди и след",
       },
       {
-        src: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
-        alt: "Изразителен поглед след ламиниране",
+        src: "/migli/01-before-after.jpg",
+        alt: "Ламиниране на мигли — преди и след, извити и по-тъмни мигли",
       },
       {
-        src: "https://images.unsplash.com/photo-1596704017256-9b0119e1a48b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
-        alt: "Професионална грижа за мигли",
+        src: "/migli/02-before-after.jpg",
+        alt: "Ламиниране на мигли — трансформация преди и след",
+      },
+      {
+        src: "/migli/03-before-after.jpg",
+        alt: "Ламиниране на мигли — диагонален преди и след",
+      },
+      {
+        src: "/migli/04-before-after.jpg",
+        alt: "Ламиниране на мигли — естествен резултат преди и след",
+      },
+      {
+        src: "/migli/05-before-after.jpg",
+        alt: "Ламиниране на мигли — отворен поглед преди и след",
+      },
+      {
+        src: "/migli/06-before-after.jpg",
+        alt: "Ламиниране на мигли — колаж преди и след",
+      },
+      {
+        src: "/migli/07-before-after.jpg",
+        alt: "Ламиниране на мигли — сравнение преди и след",
+      },
+      {
+        src: "/migli/08-collage.jpg",
+        alt: "Ламиниране на мигли — детайли от различни ъгли",
+      },
+      {
+        src: "/migli/09-result.jpg",
+        alt: "Резултат от ламиниране на мигли",
+      },
+      {
+        src: "/migli/10-result.jpg",
+        alt: "Извити и плътни мигли след ламиниране",
+      },
+      {
+        src: "/migli/11-result.jpg",
+        alt: "Резултат от ламиниране на мигли — близък план",
+      },
+      {
+        src: "/migli/12-collage.jpg",
+        alt: "Ламиниране на мигли — галерия резултати",
       },
     ],
   },
